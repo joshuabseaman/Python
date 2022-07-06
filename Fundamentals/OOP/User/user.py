@@ -21,7 +21,8 @@ class User():
     def spend_points(self, amount):
         if (self.gold_card_points < amount):
             print("Not enough points")
-        self.gold_card_points = self.gold_card_points - amount
+        else:
+            self.gold_card_points = self.gold_card_points - amount
 
 
 john = User("John", "Smith", "john.smith@email.com", 30)
