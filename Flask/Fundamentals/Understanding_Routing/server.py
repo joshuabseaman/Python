@@ -19,7 +19,7 @@ def hi_name(name):
 def repeat_word(num, word):
     output = ""
     for i in range(num):
-        output += f"{word}"
+        output += word
     return output
 
 if __name__=="__main__":
