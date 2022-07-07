@@ -1,7 +1,5 @@
 class Player:
 
-
-
     def __init__(self, player_dict):
         self.name = player_dict["name"]
         self.age = player_dict["age"]
@@ -18,6 +16,7 @@ class Player:
         for dict in data:
             player_objects.append(cls(dict))
         return player_objects
+
 
 kevin = {
         "name": "Kevin Durant", 
