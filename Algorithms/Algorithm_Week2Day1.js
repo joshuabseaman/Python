@@ -6,11 +6,10 @@ function arrayOddOccurances(arr){
                 count ++;
             }
         }
-            if (count % 2 != 0){
-                return arr[i];
-            }
+        if (count % 2 != 0){
+            return arr[i];
+        }
     }
-    return -1;
 }
 
 console.log(arrayOddOccurances([7,4,3,6,6,3,2,3,4,7,3]));
