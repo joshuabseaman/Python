@@ -15,9 +15,9 @@ def create_results():
     session['location'] = request.form['location']
     session['language'] = request.form['language']
     session['comment'] = request.form['comment']
-    return redirect('/show')
+    return redirect('/show_results')
 
-@app.route('/show')
+@app.route('/show_results')
 def show_info():
     return render_template('results.html')
 
