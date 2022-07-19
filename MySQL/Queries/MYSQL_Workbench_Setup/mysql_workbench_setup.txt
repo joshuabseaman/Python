@@ -1,0 +1,7 @@
+SELECT * FROM names
+
+INSERT INTO names (name)
+VALUES ("Joshua")
+
+INSERT INTO names (name)
+VALUES ("Audrey"), ("Havok")
