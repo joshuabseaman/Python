@@ -4,7 +4,7 @@ app = Flask(__name__)    # Create a new instance of the Flask class called "app"
 
 @app.route('/')          # The "@" decorator associates this route with the function immediately following
 def hello_world():
-    return render_template('index.html')
+    return render_template('index.html', phrase="hello", times=5)
 
 # import statements, maybe some other routes
     
