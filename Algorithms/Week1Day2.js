@@ -1,88 +1,98 @@
 /* 
-Given in an alumni interview in 2021.
-String Encode
-You are given a string that may contain sequences of consecutive characters.
-Create a function to shorten a string by including the character,
-then the number of times it appears. 
-
-
-If final result is not shorter (such as "bb" => "b2" ),
-return the original string.
+String: Reverse
+Given a string,
+return a new string that is the given string reversed
 */
 
-const str1 = "aaaabbcdddaa";
-const expected1 = "a4b2c1d3a2";
+const str1 = "creature";
+const expected1 = "erutaerc";
 
-const str2 = "";
-const expected2 = "";
+const str2 = "dog";
+const expected2 = "god";
 
-const str3 = "a";
-const expected3 = "a";
+const str3 = "hello";
+const expected3 = "olleh";
 
-const str4 = "bbcc";
-const expected4 = "bbcc";
+const str4 = "";
+const expected4 = "";
+
+function reverseString(str) {   //Create a function for the reversed string
+    var newString = ""    //create a variable for the new string
+    for (var i = str.length - 1; i >= 0; i--) {   //create a for loop that checks the length of the string and goes to the end of the last index and iterates from the end going backwards
+        newString += str[i]   //takes the value of the for loop and sets it equal to the value to the new string
+    }
+    return newString   //Gives you back the new string that was created
+}
+console.log(reverseString("creature"))   //Logging the reverse string to the terminal
+console.log(reverseString("dog"))
+console.log(reverseString("hello"))
+console.log(reverseString(""))
 
 /**
- * Encodes the given string such that duplicate characters appear once followed
- * by a number representing how many times the char occurs. Only encode strings
- * when the result yields a shorter length.
+ * Reverses the given str.
  * - Time: O(?).
  * - Space: O(?).
- * @param {string} str The string to encode.
- * @returns {string} The given string encoded.
+ * @param {string} str String to be reversed.
+ * @returns {string} The given str reversed.
  * 
- * psuedo code...
- * - 
+ * psuedo code # 1
+ * - create a function that takes in a string
+ * - turn it into an array -> split function
+ * - call the reverse function
+ * - call the join function
+ * 
+ * psuedo code # 2
+ * - create a function that takes in a string
  */
-function encodeStr(str) {
-    if (str.length < 3) {
-        return str
-    }
-    var count = 0
-    var newString = ""
-    for (let i = 0; i < str.length; i++) {
-        let currentChar = str[i]
-        let nextChar = str[i + 1]
-        if (currentChar === nextChar) {
-            count++
-        }
-        else {
-            count++
-            newString += currentChar + count
-            count = 0
-        }
-    }
-    if (newString.length >= str.length) {
-        return str
-    }
-    return newString
-}
-
-console.log(encodeStr(str1));
-console.log(encodeStr(str2));
-console.log(encodeStr(str3));
-console.log(encodeStr(str4));
-
+// function reverseString(str) {}
 
 /*****************************************************************************/
 
+
 /* 
-String Decode  
+Acronyms
+Create a function that, given a string, returns the string’s acronym 
+(first letter of each word capitalized). 
+Do it with .split first if you need to, then try to do it without
 */
 
-const two_str1 = "a3b2c1d3";
-const two_expected1 = "aaabbcddd";
+const two_str1 = "object oriented programming";
+const two_expected1 = "OOP";
 
-const two_str2 = "a3b2c12d10";
-const two_expected2 = "aaabbccccccccccccdddddddddd";
+// The 4 pillars of OOP
+const two_str2 = "abstraction polymorphism inheritance encapsulation";
+const two_expected2 = "APIE";
+
+const two_str3 = "software development life cycle";
+const two_expected3 = "SDLC";
+
+// Bonus: ignore extra spaces
+const two_str4 = "  global   information tracker    ";
+const two_expected4 = "GIT";
 
 /**
- * Decodes the given string by duplicating each character by the following int
- * amount if there is an int after the character.
+ * Turns the given str into an acronym.
  * - Time: O(?).
  * - Space: O(?).
- * @param {string} str An encoded string with characters that may have an int
- *    after indicating how many times the character occurs.
- * @returns {string} The given str decoded / expanded.
+ * @param {string} str A string to be turned into an acronym.
+ * @returns {string} The acronym.
  */
-function decodeStr(str) {}
+// function acronymize(str) {}
+
+function acronymize(str) {
+    var acroArr =[]
+    var acro 
+    acroArr.push(str.charAt(0));
+    for(var i = 0; i < str.length; i++){
+        if(str.charAt(i) == " " && (i + 1) != 0) {
+            acroArr.push(str.charAt(i+1));
+        }
+    }
+    acro = acroArr.join("");
+    return acro.toUpperCase();
+}
+
+console.log(acronymize(two_str1))
+console.log(acronymize(two_str2))
+console.log(acronymize(two_str3))
+console.log(acronymize(two_str4))
