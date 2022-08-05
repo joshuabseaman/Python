@@ -84,4 +84,21 @@ const two_expected5 = "567765";
  * @param {string} str
  * @returns {string} The longest palindromic substring from the given string.
  */
-function longestPalindromicSubstring(str) {}
+function longestPalindromicSubstring(str) {
+  let longestPalindrome = str[0];
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length + 1; j++) {
+      let subStr = str.slice(i, j);
+      if (subStr.length > longestPalindrome.length && isPalindrome(subStr)) {
+        longestPalindrome = subStr;
+      }
+    }
+  }
+  return longestPalindrome;
+}
+
+console.log(longestPalindromicSubstring(two_str1));
+console.log(longestPalindromicSubstring(two_str2));
+console.log(longestPalindromicSubstring(two_str3));
+console.log(longestPalindromicSubstring(two_str4));
+console.log(longestPalindromicSubstring(two_str5));
