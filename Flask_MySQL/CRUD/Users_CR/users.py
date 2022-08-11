@@ -23,3 +23,4 @@ class User:
         query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s);"
         result = connectToMySQL('users_db').query_db(query, data)
         return result
+        
