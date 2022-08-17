@@ -46,13 +46,14 @@ class Dojo:
         results = connectToMySQL('dojos_and_ninjas_db').query_db(query, data)
         dojo = cls(results[0])
         for row in results:
-            ninja_data = {
-                "id" : row["ninjas.id"],
-                "first_name" : row["first_name"],
-                "last_name" : row["last_name"],
-                "age" : row["age"],
-                "created_at" : row["ninjas.created_at"],
-                "updated_at" : row["ninjas.updated_at"]
-            }
-            dojo.ninjas.append(model_ninja.Ninja(ninja_data))
+            if row["ninjas.id"]:
+                ninja_data = {
+                    "id" : row["ninjas.id"],
+                    "first_name" : row["first_name"],
+                    "last_name" : row["last_name"],
+                    "age" : row["age"],
+                    "created_at" : row["ninjas.created_at"],
+                    "updated_at" : row["ninjas.updated_at"]
+                }
+                dojo.ninjas.append(model_ninja.Ninja(ninja_data))
         return dojo
