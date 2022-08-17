@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+</head>
+<body>
+
+    <h1>Dojo Survey</h1>
+    <form action="/create/survey" method="post">
+        <label for="name">Your Name:</label>
+            <input type="text" name="name">
+        <p>Dojo Location:</p>
+            <select name="location">
+                <option value="">-- Select A Location --</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Online">Online</option>
+                <option value="Burbank">Burbank</option>
+                <option value="Bellevue">Bellevue</option>
+            </select>
+        <p>Favorite Language:</p>
+            <select name="language">
+                <option value="">-- Select a Language --</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Python">Python</option>
+                <option value="C#">C#</option>
+            </select>
+        <p>Comments:</p>
+            <textarea name="comments">(Your Comment Here)</textarea>
+        <input type="submit" value="Submit">
+    </form>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+</body>
+</html>
