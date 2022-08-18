@@ -50,3 +50,4 @@ def results():
 def logout():
     session.clear()
     return redirect('/')
+
