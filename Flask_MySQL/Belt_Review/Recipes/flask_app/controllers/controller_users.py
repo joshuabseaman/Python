@@ -20,7 +20,7 @@ def register():
     }
     user_id = model_user.User.save(data)
     session['user_id'] = user_id
-    return redirect('/results')
+    return redirect('/recipes')
 
 @app.route('/login',methods=['POST'])
 def login():
@@ -35,19 +35,9 @@ def login():
         flash("Invalid Email/Password")
         return redirect('/')
     session['user_id'] = user_in_db.id
-    return redirect("/results")
-
-@app.route('/results')
-def results():
-    if not session:
-        return redirect('/')
-    data = {
-        "id": session['user_id']
-    }
-    return render_template("results.html",users=model_user.User.get_one(data))
+    return redirect("/recipes")
 
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/')
-
